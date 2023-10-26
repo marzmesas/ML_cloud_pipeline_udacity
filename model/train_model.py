@@ -11,7 +11,7 @@ from ml.model import train_model, compute_model_metrics, inference
 # Add code to load in the data.
 
 df = pd.read_csv('../data/census.csv')
-
+logging.basicConfig(level=logging.INFO)
 
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
 train, test = train_test_split(df, test_size=0.20)
@@ -47,7 +47,7 @@ logging.info(f"Precision: {precision: .2f}. Recall: {recall: .2f}. Fbeta: {fbeta
 
 # Save artifacts
 logging.info("Saving artifacts")
-joblib.dump(rf, 'model/model.pkl')
-joblib.dump(encoder, 'model/encoder.pkl')
-joblib.dump(lb, 'model/lb.pkl')
+joblib.dump(rf, './model.pkl')
+joblib.dump(encoder, './encoder.pkl')
+joblib.dump(lb, './lb.pkl')
 
