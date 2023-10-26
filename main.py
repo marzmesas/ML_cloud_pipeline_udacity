@@ -20,7 +20,6 @@ from model.ml.model import inference
 #     os.system("rm -r .dvc .apt/usr/lib/dvc")
 
 
-
 # Create app
 app = FastAPI()
 
@@ -117,6 +116,8 @@ async def root():
         "Hi": "This app predicts wether income exceeds $50K/yr based on census data."}
 
 # Prediction path
+
+
 @app.post("/predict-income")
 async def predict(input: ModelInput):
 
