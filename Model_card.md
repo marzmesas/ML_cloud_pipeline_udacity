@@ -25,7 +25,8 @@ The model was evaluated on the following metrics: Precision: 0.74. Recall: 0.62.
 ## Ethical Considerations
 
 Given that the data contains attributes about sex, race and so on, special consideration should be given to how the model
-performs accros different groups.
+performs across different groups. In the case of the race, we can see how the `fbeta` metric has a variation of as much as 5%
+between different values of the race feature.
 
 ## Caveats and Recommendations
 

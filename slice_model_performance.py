@@ -11,7 +11,7 @@ from model.ml.model import compute_model_metrics
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 
-DATA_PATH = "data/clean_census.csv"
+DATA_PATH = "data/census.csv"
 ARTIFACTS_PATH = "model"
 
 # Categorical features
