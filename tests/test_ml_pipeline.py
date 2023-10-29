@@ -2,15 +2,15 @@ from pathlib import Path
 import logging
 import pandas as pd
 import pytest
-from model.ml.data import process_data
-from utils import load_artifact
+from ..model.ml.data import process_data
+from ..utils import load_artifact
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 
 
-DATA_PATH = 'data/clean_census.csv'
+DATA_PATH = 'data/census.csv'
 MODEL_PATH = 'model/model.pkl'
 cat_features = [
     "workclass",

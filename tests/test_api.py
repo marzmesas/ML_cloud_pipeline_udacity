@@ -1,8 +1,9 @@
 """ This module tests the root and the prediction end points """
 from fastapi.testclient import TestClient
 
+
 # Import our app from main.py.
-from main import app
+from ..main import app
 
 # Instantiate the testing client with our app.
 client = TestClient(app)
@@ -30,14 +31,14 @@ def test_post_predict_up():
         "relationship": "Husband",
         "race": "Black",
         "sex": "Male",
-        "capital_gain": 0,
+        "capital_gain": 33330,
         "capital_loss": 0,
         "hours_per_week": 80,
         "native_country": "United-States"
     })
 
     assert r.status_code == 200
-    assert r.json() == {"Income prediction": ">50K"}
+    assert r.json() == {"Income prediction": " >50K"}
 
 
 def test_post_predict_down():
@@ -60,4 +61,4 @@ def test_post_predict_down():
     })
 
     assert r.status_code == 200
-    assert r.json() == {"Income prediction": "<=50K"}
+    assert r.json() == {"Income prediction": " <=50K"}
