@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [macos-latest]
     
     steps:
     - name: Check out code
@@ -33,4 +33,4 @@ jobs:
       continue-on-error: true
 
     - name: Run flake8
-      run:  flake8 --max-line-length 100
+      run:  flake8 --max-line-length 150

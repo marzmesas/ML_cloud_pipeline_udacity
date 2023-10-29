@@ -1,7 +1,7 @@
 """
 This module contains the code for the API
 """
-import os
+
 from fastapi import FastAPI
 from typing import Literal
 from pandas import DataFrame
