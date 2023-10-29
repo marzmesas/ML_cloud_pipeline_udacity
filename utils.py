@@ -12,7 +12,7 @@ def load_artifact(artifact_path):
 
 
 def get_cat_features():
-    """ Return a list of categorical features"""
+    """Return a list of categorical features"""
 
     cat_features = [
         "workclass",

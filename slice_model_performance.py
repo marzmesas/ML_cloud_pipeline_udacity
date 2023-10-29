@@ -11,8 +11,8 @@ from model.ml.model import compute_model_metrics
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 
-DATA_PATH = 'data/clean_census.csv'
-ARTIFACTS_PATH = 'model'
+DATA_PATH = "data/clean_census.csv"
+ARTIFACTS_PATH = "model"
 
 # Categorical features
 cat_features = [
@@ -26,15 +26,16 @@ cat_features = [
     "native-country",
 ]
 
+
 def test_performance():
-    """ Check performance on categorical features """
+    """Check performance on categorical features"""
 
     data = pd.read_csv(DATA_PATH)
     _, test = train_test_split(data, test_size=0.20)
 
-    rf = load_artifact(os.path.join(ARTIFACTS_PATH, 'model.pkl'))
-    encoder = load_artifact(os.path.join(ARTIFACTS_PATH, 'encoder.pkl'))
-    lb = load_artifact(os.path.join(ARTIFACTS_PATH, 'lb.pkl'))
+    rf = load_artifact(os.path.join(ARTIFACTS_PATH, "model.pkl"))
+    encoder = load_artifact(os.path.join(ARTIFACTS_PATH, "encoder.pkl"))
+    lb = load_artifact(os.path.join(ARTIFACTS_PATH, "lb.pkl"))
 
     slice_metrics = []
 
@@ -48,7 +49,8 @@ def test_performance():
                 label="salary",
                 encoder=encoder,
                 lb=lb,
-                training=False)
+                training=False,
+            )
 
             y_pred = rf.predict(X_test)
 
@@ -56,12 +58,12 @@ def test_performance():
             row = f"{feature} - {cls} :: Precision: {precision: .2f}. Recall: {recall: .2f}. Fbeta: {fbeta: .2f}"
             slice_metrics.append(row)
 
-            with open('slice_metrics/slice_output.txt', 'w') as file:
+            with open("slice_metrics/slice_output.txt", "w") as file:
                 for row in slice_metrics:
-                    file.write(row + '\n')
+                    file.write(row + "\n")
 
     logging.info("Performance metrics for slices saved to slice_output.txt")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     test_performance()

@@ -10,7 +10,7 @@ from ml.model import train_model, compute_model_metrics, inference
 
 # Add code to load in the data.
 
-df = pd.read_csv('../data/census.csv')
+df = pd.read_csv("../data/census.csv")
 logging.basicConfig(level=logging.INFO)
 
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
@@ -31,23 +31,26 @@ X_train, y_train, encoder, lb = process_data(
 )
 
 X_test, y_test, _, _ = process_data(
-    test, categorical_features=cat_features, label="salary",
-    training=False, encoder=encoder, lb=lb
+    test,
+    categorical_features=cat_features,
+    label="salary",
+    training=False,
+    encoder=encoder,
+    lb=lb,
 )
 
 # Train and save a model.
-logging.info('TRAINING MODEL...')
+logging.info("TRAINING MODEL...")
 rf = train_model(X_train, y_train)
 
-#Inference and metric evaluation
-logging.info('INFERENCE AND MODEL METRICS CALCULATION...')
+# Inference and metric evaluation
+logging.info("INFERENCE AND MODEL METRICS CALCULATION...")
 preds = inference(rf, X_test)
 precision, recall, fbeta = compute_model_metrics(y_test, preds)
 logging.info(f"Precision: {precision: .2f}. Recall: {recall: .2f}. Fbeta: {fbeta: .2f}")
 
 # Save artifacts
 logging.info("Saving artifacts")
-joblib.dump(rf, './model.pkl')
-joblib.dump(encoder, './encoder.pkl')
-joblib.dump(lb, './lb.pkl')
-
+joblib.dump(rf, "./model.pkl")
+joblib.dump(encoder, "./encoder.pkl")
+joblib.dump(lb, "./lb.pkl")

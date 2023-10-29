@@ -18,7 +18,7 @@ features = {
     "capital_gain": 2000,
     "capital_loss": 0,
     "hours_per_week": 45,
-    "native_country": "United-States"
+    "native_country": "United-States",
 }
 
 

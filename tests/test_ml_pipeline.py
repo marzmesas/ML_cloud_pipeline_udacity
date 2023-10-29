@@ -10,8 +10,8 @@ from sklearn.model_selection import train_test_split
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 
 
-DATA_PATH = 'data/census.csv'
-MODEL_PATH = 'model/model.pkl'
+DATA_PATH = "data/census.csv"
+MODEL_PATH = "model/model.pkl"
 cat_features = [
     "workclass",
     "education",
@@ -24,7 +24,7 @@ cat_features = [
 ]
 
 
-@pytest.fixture(name='data')
+@pytest.fixture(name="data")
 def data():
     """
     Fixture will be used by the unit tests.
@@ -33,22 +33,21 @@ def data():
 
 
 def test_dataloading(data):
-
     assert data.shape[0] > 0
     assert data.shape[1] > 0
     assert isinstance(data, pd.DataFrame)
 
 
 def test_model():
-    """ Check model type """
+    """Check model type"""
 
     model = load_artifact(MODEL_PATH)
     assert isinstance(model, RandomForestClassifier)
 
 
 def test_process_data(data):
-    """ Test the data split """
+    """Test the data split"""
 
     train, _ = train_test_split(data, test_size=0.20)
-    X, y, _, _ = process_data(train, cat_features, label='salary')
+    X, y, _, _ = process_data(train, cat_features, label="salary")
     assert len(X) == len(y)
