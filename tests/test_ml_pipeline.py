@@ -1,8 +1,12 @@
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import logging
 import pandas as pd
 import pytest
-from ..model.ml.data import process_data
-from ..utils import load_artifact
+from model.ml.data import process_data
+from utils import load_artifact
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 
