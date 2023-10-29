@@ -6,5 +6,7 @@ flake8
 requests
 fastapi
 autopep8
+black
+httpx
 uvicorn
 gunicorn
