@@ -8,9 +8,9 @@ from pandas import DataFrame
 import numpy as np
 import uvicorn
 from pydantic import BaseModel
-from utils import load_artifact, get_cat_features
-from model.ml.data import process_data
-from model.ml.model import inference
+from .utils import load_artifact, get_cat_features
+from .model.ml.data import process_data
+from .model.ml.model import inference
 
 # Set up DVC on Heroku
 # if "DYNO" in os.environ and os.path.isdir(".dvc"):
