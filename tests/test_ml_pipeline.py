@@ -3,18 +3,15 @@ import sys
 import logging
 import pandas as pd
 import pytest
-from model.ml.data import process_data
-from utils import load_artifact
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-
-
+from model.ml.data import process_data  # noqa: E402
+from utils import load_artifact  # noqa: E402
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
-
 
 DATA_PATH = "data/census.csv"
 MODEL_PATH = "model/model.pkl"

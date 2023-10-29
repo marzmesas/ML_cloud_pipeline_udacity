@@ -2,10 +2,9 @@ import os
 import sys
 from fastapi.testclient import TestClient
 
-# Import our app from main.py.
-from main import app
-
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Import our app from main.py.
+from main import app  # noqa: E402
 
 # Instantiate the testing client with our app.
 client = TestClient(app)
