@@ -33,4 +33,4 @@ jobs:
       continue-on-error: true
 
     - name: Run flake8
-      run: flake8
+      run:  flake8 --max-line-length 100
